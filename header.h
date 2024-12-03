@@ -17,3 +17,15 @@ unsigned int Tahun_Produksi;
 unsigned int Jumlah_Unit;
 unsigned int Jumlah_Tersedia;
 } Alat_Lab;
+
+typedef struct {
+    unsigned int Id_Alat;
+    char Nama_Alat[50];
+    unsigned int Jumlah_Pinjam;
+} Alat_Peminjaman;
+
+// Deklarasi Variabel Global
+extern Alat_Lab alat_lab[MAX_ALAT];
+extern unsigned int total_alat;
+extern unsigned int total_peminjaman;
+extern Alat_Peminjaman peminjaman[MAX_PEMINJAMAN];

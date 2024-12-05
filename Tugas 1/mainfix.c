@@ -1,29 +1,20 @@
 #include "header.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main() {
-    char identitas[10]; 
-    data(); 
+int main(int argc, char *argv[]) {
+    char identitas[10]; // Role admin/user
 
-    printf("\n---- Sistem Manajemen Alat Laboratorium ----\n\n");
-
-    // Memanggil fungsi login
-    if (!login(identitas)) 
-    {
-        return 0; 
+    // Validasi jumlah argumen
+    if (argc < 3) {
+        printf("Penggunaan: %s <username> <password>\n", argv[0]);
+        return 1;
     }
 
-  if (strcmp(identitas, "admin") == 0) {
-        printf("\n Selamat datang, Admin!\n");
-    } else {
-        printf("\n Selamat datang, User!\n");
-    }
+    // Menampilkan username dan password yang digunakan
+    printf("Login dengan Username: %s\n", argv[1]);
+    printf("Password: %s\n", argv[2]);
 
-    // Mengarahkan ke menu sesuai dengan identitas
-    if (strcmp(identitas, "admin") == 0) {
-        admin_menu(); // Menu admin
-    } else if (strcmp(identitas, "user") == 0) {
-        user_menu(); // Menu user
-    }
-
-    return 0;
-}
+    // Memuat data alat_lab
+    data();
